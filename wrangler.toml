@@ -1,2 +1,11 @@
 name = "0712121-xyz"
+compatibility_date = "2026-07-21"
 pages_build_output_dir = "."
+
+# 通过 Cloudflare Pages (Git) 部署时，控制台「部署命令」请使用：
+#     npx wrangler pages deploy
+# 而不是 `npx wrangler deploy`（后者会把本项目误判为 Worker 而报
+# “Missing entry-point / assets directory” 错误）。
+#
+# 如果你不想用 wrangler，也可以把控制台「部署命令」留空，
+# 直接静态发布（构建命令留空，输出目录 `/`）即可。
