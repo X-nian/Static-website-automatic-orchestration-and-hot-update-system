@@ -1,0 +1,7 @@
+name = "blog"
+compatibility_date = "2026-07-21"
+
+# 用 Cloudflare Workers 的静态资源（Assets）直接托管当前目录
+# 这样 `blog.tmr3187435155.workers.dev` 就会显示 index.html
+[assets]
+directory = "."
