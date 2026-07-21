@@ -3,54 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demo Site · Cloudflare Pages</title>
+  <title>测试网页 · 0712121.xyz</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <span class="badge">部署于 Cloudflare Pages</span>
-      <h1>你好，这是我的演示站点 👋</h1>
+      <span class="badge">Cloudflare Pages · 部署测试</span>
+      <h1>🧪 测试网页运行中 ✓</h1>
       <p class="lead">
-        本站点通过 GitHub 仓库实时推送，自动部署到 Cloudflare Pages。
-        每次 <code>git push</code> 都会触发一次新的部署。
+        这是用于验证 <strong>GitHub → Cloudflare Pages</strong> 自动部署链路的测试页。
+        如果你能看到这个页面，说明静态托管已经成功。
       </p>
-      <a class="btn" href="https://pages.cloudflare.com" target="_blank" rel="noopener">了解 Cloudflare Pages</a>
     </div>
   </header>
 
   <main class="container">
     <section class="cards">
       <article class="card">
-        <h2>实时编辑</h2>
-        <p>在本地修改任意文件，提交并推送后，Cloudflare 会自动拉取并重新部署。</p>
+        <h2>部署状态</h2>
+        <p id="status">正在检测…</p>
       </article>
       <article class="card">
-        <h2>全球 CDN</h2>
-        <p>静态资源由 Cloudflare 全球边缘节点分发，访问速度更快、更稳定。</p>
+        <h2>当前时间</h2>
+        <p id="clock">--:--:--</p>
       </article>
       <article class="card">
-        <h2>免费托管</h2>
-        <p>Cloudflare Pages 提供免费的静态站点托管与自动 HTTPS。</p>
+        <h2>JS 运行测试</h2>
+        <p>点击次数：<span id="count">0</span></p>
+        <button class="btn" id="btn">点我 +1</button>
       </article>
     </section>
 
     <section class="note">
-      <h2>工作流</h2>
+      <h2>如何判断链路正常</h2>
       <ol>
-        <li>本地编辑文件（例如这个 <code>index.html</code>）</li>
-        <li><code>git add . &amp;&amp; git commit -m "update"</code></li>
-        <li><code>git push</code> → 自动触发 Cloudflare Pages 部署</li>
+        <li>本页能正常打开（静态资源 <code>index.html</code> / <code>styles.css</code> 加载成功）</li>
+        <li>时间每秒刷新（说明 JS 已执行）</li>
+        <li>按钮可点击计数（进一步验证 JS 运行）</li>
+        <li>修改文件 → <code>git push</code> → Cloudflare 自动重新部署</li>
       </ol>
     </section>
   </main>
 
   <footer class="container">
-    <p>© <span id="year"></span> Demo Site · Powered by GitHub + Cloudflare Pages</p>
+    <p>© <span id="year"></span> 0712121.xyz · 测试页 · Powered by GitHub + Cloudflare Pages</p>
   </footer>
 
   <script>
+    // 部署状态
+    document.getElementById('status').textContent = '✅ 部署成功，页面已加载';
+    document.getElementById('status').style.color = '#7ee787';
+
+    // 年份
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 时钟
+    function tick() {
+      const d = new Date();
+      document.getElementById('clock').textContent = d.toLocaleTimeString('zh-CN');
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // 点击计数
+    let n = 0;
+    document.getElementById('btn').addEventListener('click', function () {
+      n++;
+      document.getElementById('count').textContent = n;
+    });
   </script>
 </body>
 </html>

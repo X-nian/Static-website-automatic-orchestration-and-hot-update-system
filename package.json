@@ -1,0 +1,10 @@
+{
+  "name": "0712121-xyz",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static test site deployed to Cloudflare Pages via GitHub",
+  "scripts": {
+    "build": "echo \"Static site: no build step required.\"",
+    "deploy": "npx wrangler pages deploy . --project-name=0712121-xyz"
+  }
+}
