@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+*.log
+.git_inst.log
+node_inst.log
+gh_inst.log
+all_done.log
+git_installer.exe
+node_installer.msi
+gh_installer.msi
