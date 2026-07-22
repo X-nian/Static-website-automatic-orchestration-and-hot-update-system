@@ -24,7 +24,95 @@
 
 ---
 
-## 二、仓库里的文件
+## 二、Git 安装与基础配置
+
+Git 是把代码推送到 GitHub、触发 Cloudflare 自动部署的前提。下面讲清
+**在本机安装 Git 并做首次部署前的基础配置**。
+
+### 2.1 下载并安装 Git
+
+1. 打开官网 https://git-scm.com/downloads ，下载 **Windows** 版安装包
+   （64-bit Git for Windows Setup）。
+2. 双击运行，一路「Next」，关键选项保持默认即可：
+   - **Select Components**：勾选 `Git Bash Here`、`Git GUI Here`
+   - **Choosing the default editor**：选你习惯的（如 VS Code / Notepad++，
+     新手可直接用默认的 Vim 也行）
+   - **Adjusting your PATH environment**：选
+     **`Git from the command line and also from 3rd-party software`**
+     （这样 `git` 命令在 PowerShell / CMD 里都能用，最重要）
+   - **Choosing HTTPS transport backend**：选 `Use the native Windows Secure
+     Channel library`
+   - **Configuring the line ending conversions**：选
+     `Checkout Windows-style, commit Unix-style line endings`（默认）
+   - **Configuring the terminal emulator**：选 `Use Windows' default console`
+   - **Enable Git Credential Manager**：**务必勾选**（它让你 `git push` 时
+     弹浏览器登录 GitHub，免去手动管 token）
+3. 安装完成后**重启终端**，让 PATH 生效。
+
+### 2.2 验证安装
+
+打开 PowerShell，执行：
+
+```powershell
+git --version
+```
+
+能输出版本号（如 `git version 2.x.x.windows.1`）即安装成功。
+
+### 2.3 首次使用的基础配置（必做）
+
+Git 提交需要知道你是谁，否则提交会报错。在 PowerShell 里设置全局用户名和邮箱
+（用你 GitHub 上的用户名和注册邮箱）：
+
+```powershell
+git config --global user.name  "你的GitHub用户名"
+git config --global user.email "你的GitHub邮箱"
+```
+
+查看已配置：
+
+```powershell
+git config --global --list
+```
+
+### 2.4 确认凭据助手（网页授权）
+
+安装时勾选的 **Git Credential Manager** 会自动接管认证。确认一下：
+
+```powershell
+git config --global credential.helper
+# 正常应输出 manager 或 manager-core
+```
+
+有了它，之后 `git push` 会**弹出浏览器让你登录 GitHub 并授权**，
+登录一次后会记住凭据，后续推送不再重复登录（见第五节）。
+
+### 2.5 准备本地仓库
+
+如果你还没有把本仓库拉到本地，先克隆（需先按第五节解决连 GitHub 的网络问题）：
+
+```powershell
+git clone https://github.com/你的用户名/你的仓库.git
+cd 你的仓库
+```
+
+如果你是用 CodeBuddy 在本仓库里工作，可跳过克隆，直接进入仓库目录操作。
+
+### 2.6 （可选）安装 Node.js 与 Wrangler
+
+实际部署由 **Cloudflare 云端**完成，本机**不需要** Node.js/Wrangler 也能部署。
+只有想在本机本地预览时才需要：
+
+1. 装 Node.js：https://nodejs.org （LTS 版），安装后 `node -v` 验证。
+2. 装 Wrangler（仅本地调试用）：
+   ```powershell
+   npm install -g wrangler
+   wrangler --version
+   ```
+
+---
+
+## 三、仓库里的文件
 
 | 文件 | 作用 |
 |------|------|
@@ -37,7 +125,7 @@
 
 ---
 
-## 三、`wrangler.toml` 说明
+## 四、`wrangler.toml` 说明
 
 ```toml
 name = "blog"
@@ -54,7 +142,7 @@ directory = "."
 
 ---
 
-## 四、部署步骤（从零）
+## 五、部署步骤（从零）
 
 1. **在 Cloudflare 创建 Worker 项目并连接 GitHub**
    - 登录 https://dash.cloudflare.com → 「Workers 和 Pages」→「创建」→「连接到 Git」
@@ -73,7 +161,7 @@ directory = "."
 
 ---
 
-## 五、本机推送代码的注意事项（实战踩坑）
+## 六、本机推送代码的注意事项（实战踩坑）
 
 很多网络环境下 `git push github.com` 会报 `Recv failure: Connection was reset`。
 下面三种方式任选其一。
@@ -115,7 +203,7 @@ git push origin main
 
 ---
 
-## 六、常见错误排查
+## 七、常见错误排查
 
 | 现象 | 原因 | 解决 |
 |------|------|------|
@@ -126,7 +214,7 @@ git push origin main
 
 ---
 
-## 七、以后怎么更新内容
+## 八、以后怎么更新内容
 
 改完 `index.html` 等文件后，一条命令即可：
 
@@ -140,7 +228,7 @@ Cloudflare 自动重新部署，无需再登录控制台。
 
 ---
 
-## 八、改动自动存档与版本切换（version.ps1）
+## 九、改动自动存档与版本切换（version.ps1）
 
 `version.ps1` 把每次改动存成**带 tag 的版本**（`v1`、`v2` …），并能切换到任意版本部署。
 
@@ -175,7 +263,7 @@ git checkout main
 
 ---
 
-## 九、绑定自定义域名（可选）
+## 十、绑定自定义域名（可选）
 
 Worker 项目 →「设置」→「触发器」→「自定义域」，添加如 `0712121.xyz`，
 按提示去域名 DNS 添加一条 CNAME，指向 `<项目名>.workers.dev`，几分钟生效。
