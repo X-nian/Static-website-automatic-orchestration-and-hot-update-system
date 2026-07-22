@@ -4,6 +4,7 @@
 
 - 一个能跑的测试网页（`index.html` + `styles.css`），用来验证部署链路
 - 一套完整的 **GitHub → Cloudflare 自动部署**配置（`wrangler.toml`）
+- 一个**本地 Git 网页授权脚本**（`git-auth.ps1`），帮你免 token 登录 GitHub 并提交
 - 本文档：从零讲清部署过程、所需软件、所需代码、以及实战踩过的坑
 
 ---
@@ -29,6 +30,7 @@
 | `index.html` | 测试网页（你访问站点看到的就是它） |
 | `styles.css` | 测试页样式 |
 | `wrangler.toml` | Cloudflare 部署配置（**关键**） |
+| `git-auth.ps1` | 本地 Git 网页授权登录 GitHub 的脚本 |
 | `README.md` | 本教程 |
 
 ---
@@ -72,18 +74,35 @@ directory = "."
 ## 五、本机推送代码的注意事项（实战踩坑）
 
 很多网络环境下 `git push github.com` 会报 `Recv failure: Connection was reset`。
-两种解决办法：
+下面三种方式任选其一。
 
-**方案 A：让 Git 走代理（Clash / V2Ray 等）**
+### 方式 A：用脚本一键完成网页授权（推荐）
+
+仓库自带的 `git-auth.ps1` 会自动配置并触发浏览器登录 GitHub：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File git-auth.ps1
+```
+
+脚本会依次：
+1. 设置 Git 凭据助手为 Credential Manager（网页授权方式，push 时弹浏览器）
+2. 询问并可选配置代理（解决 `Connection was reset`）
+3. 触发一次 GitHub 远程请求 → 弹出浏览器 → 登录并授权
+
+授权完成后即可直接推送（见第七节）。
+
+### 方式 B：手动让 Git 走代理（Clash / V2Ray 等）
 
 ```powershell
 git config --global http.proxy http://127.0.0.1:7890
 git config --global https.proxy http://127.0.0.1:7890
 # 端口按你代理软件实际端口改（常见 7890 / 7891 / 1080）
-git push origin main
 ```
 
-**方案 B：改用 SSH 协议**
+配置好代理后，`git push` 会弹出浏览器让你登录 GitHub（Git Credential Manager），
+登录完即自动推送，无需手动管理 token。
+
+### 方式 C：改用 SSH 协议
 
 ```powershell
 ssh-keygen -t ed25519 -C "你的邮箱"        # 生成密钥
@@ -91,9 +110,6 @@ ssh-keygen -t ed25519 -C "你的邮箱"        # 生成密钥
 git remote set-url origin git@github.com:用户名/仓库.git
 git push origin main
 ```
-
-> 配置好代理后，`git push` 会弹出浏览器让你登录 GitHub（Git Credential Manager），
-> 登录完即自动推送，无需手动管理 token。
 
 ---
 
@@ -104,7 +120,7 @@ git push origin main
 | `Authentication error [code: 10000]` | 部署命令用了 `wrangler pages deploy`，调 Pages API 无权限 | 改用 `npx wrangler deploy` |
 | `Missing entry-point to Worker script or to assets directory` | `wrangler.toml` 没 `main` 也没 `[assets]` | 加上 `[assets] directory = "."` |
 | 部署成功但页面空白 | 用的是 Worker 项目却没配 `[assets]`，或访问了未绑定的自定义域名 | 配好 `[assets]`，用 `*.workers.dev` 访问 |
-| `Connection was reset` | 本机连 GitHub 被重置 | 见第五节（代理 / SSH） |
+| `Connection was reset` | 本机连 GitHub 被重置 | 见第五节（脚本 / 代理 / SSH） |
 
 ---
 
