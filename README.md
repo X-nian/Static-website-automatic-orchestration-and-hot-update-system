@@ -5,6 +5,7 @@
 - 一个能跑的测试网页（`index.html` + `styles.css`），用来验证部署链路
 - 一套完整的 **GitHub → Cloudflare 自动部署**配置（`wrangler.toml`）
 - 一个**本地 Git 网页授权脚本**（`git-auth.ps1`），帮你免 token 登录 GitHub 并提交
+- 一个**版本存档与切换脚本**（`version.ps1`），把每次改动存成版本并可在版本间切换部署
 - 本文档：从零讲清部署过程、所需软件、所需代码、以及实战踩过的坑
 
 ---
@@ -31,6 +32,7 @@
 | `styles.css` | 测试页样式 |
 | `wrangler.toml` | Cloudflare 部署配置（**关键**） |
 | `git-auth.ps1` | 本地 Git 网页授权登录 GitHub 的脚本 |
+| `version.ps1` | 改动自动存档为版本、并切换部署的脚本 |
 | `README.md` | 本教程 |
 
 ---
@@ -138,7 +140,42 @@ Cloudflare 自动重新部署，无需再登录控制台。
 
 ---
 
-## 八、绑定自定义域名（可选）
+## 八、改动自动存档与版本切换（version.ps1）
+
+`version.ps1` 把每次改动存成**带 tag 的版本**（`v1`、`v2` …），并能切换到任意版本部署。
+
+**存档当前改动为新版本**（自动生成下一个版本号）：
+```powershell
+powershell -ExecutionPolicy Bypass -File version.ps1
+# 或带说明：
+powershell -ExecutionPolicy Bypass -File version.ps1 save "首页改文案"
+```
+脚本会 `git add -A` → 提交 → 打 `vN` 标签；最后询问是否 `push` 并带上 tag。
+
+**列出所有版本**：
+```powershell
+powershell -ExecutionPolicy Bypass -File version.ps1 list
+```
+
+**切换到某版本并部署到线上**：
+```powershell
+powershell -ExecutionPolicy Bypass -File version.ps1 switch v2
+```
+这会把 `v2` 强制推送到 `main` 分支，触发 Cloudflare 部署该版本（即「切换版本 push」）。
+
+**仅本地查看某版本（不部署）**：
+```powershell
+powershell -ExecutionPolicy Bypass -File version.ps1 checkout v2
+# 查看完返回最新：
+git checkout main
+```
+
+> ⚠️ `switch` 用的是强制推送（`+vN:main`），会改写线上 `main` 指向的版本。
+> 个人/演示项目无妨；团队协作请谨慎。要回到最新版本，再 `switch` 最大的版本号即可。
+
+---
+
+## 九、绑定自定义域名（可选）
 
 Worker 项目 →「设置」→「触发器」→「自定义域」，添加如 `0712121.xyz`，
 按提示去域名 DNS 添加一条 CNAME，指向 `<项目名>.workers.dev`，几分钟生效。
