@@ -121,6 +121,7 @@ cd 你的仓库
 | `wrangler.toml` | Cloudflare 部署配置（**关键**） |
 | `git-auth.ps1` | 本地 Git 网页授权登录 GitHub 的脚本 |
 | `version.ps1` | 改动自动存档为版本、并切换部署的脚本 |
+| `repo-init.ps1` | 本地新建 Git 库并在 GitHub 新建库后唯一绑定 origin 的脚本 |
 | `README.md` | 本教程 |
 
 ---
@@ -263,7 +264,54 @@ git checkout main
 
 ---
 
-## 十、绑定自定义域名（可选）
+## 十、本地仓库与 GitHub 仓库的新建与绑定（repo-init.ps1）
+
+除了在本仓库里工作，你也可以**从零新建一个项目**：在本地 `git init` 新建仓库，
+在 GitHub（网页或用 GitHub CLI）新建对应仓库，然后把二者绑定——**一个本地库
+唯一对应一个 GitHub 库（`remote` 名为 `origin`）**。`repo-init.ps1` 把这个流程自动化。
+
+**用法**
+```powershell
+# 在当前目录操作 (若不是 git 仓库会先 git init)
+powershell -ExecutionPolicy Bypass -File repo-init.ps1
+# 指定仓库名与可见性:
+powershell -ExecutionPolicy Bypass -File repo-init.ps1 -RepoName my-site -Visibility public
+```
+
+**脚本会依次做这些事**
+1. 进入目标目录；若不是 Git 仓库则 `git init` 新建本地库。
+2. 确保已配置 `user.name` / `user.email`（缺失则交互询问）。
+3. 处理与 GitHub 的绑定：
+   - 若已安装 **GitHub CLI（`gh`）** 且已登录（`gh auth login`），直接
+     `gh repo create` 在 GitHub 新建仓库并绑定为 `origin`；
+   - 若未安装 `gh`，则提示你去 GitHub 网页新建空仓库，粘贴其 HTTPS URL，
+     脚本执行 `git remote add origin <URL>`。
+4. **唯一性保证**：若已存在 `origin`，会询问是否先移除旧绑定，确保最终只有
+   唯一一个 `origin`（一个本地库 ↔ 一个 GitHub 库）。
+5. 可选首次 `commit` 并 `push`。
+
+**手动等价操作（理解原理）**
+```powershell
+git init                              # 本地新建库
+git config user.name  "你的用户名"    # 若未配置
+git config user.email "你的邮箱"
+# 在 GitHub 网页新建空仓库, 拿到 HTTPS 地址后:
+git remote add origin https://github.com/用户名/仓库.git
+git add -A
+git commit -m "initial commit"
+git branch -M main
+git push -u origin main
+# 查看绑定 (应只有唯一一个 origin):
+git remote -v
+```
+
+> 提示：本仓库本身已经完成了这套绑定（`origin` →
+> `https://github.com/AMDSE/0712121.xyz`）。`repo-init.ps1` 适用于你**新建别的项目**
+> 时复用同一套流程。
+
+---
+
+## 十一、绑定自定义域名（可选）
 
 Worker 项目 →「设置」→「触发器」→「自定义域」，添加如 `0712121.xyz`，
 按提示去域名 DNS 添加一条 CNAME，指向 `<项目名>.workers.dev`，几分钟生效。
