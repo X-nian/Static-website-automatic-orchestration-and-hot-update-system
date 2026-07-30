@@ -1,7 +1,11 @@
-name = "blog"
+name = "sparkling-truth-0e2c"
 compatibility_date = "2026-07-21"
 
 # 用 Cloudflare Workers 的静态资源（Assets）直接托管当前目录
-# 这样 `blog.tmr3187435155.workers.dev` 就会显示 index.html
+# 这样现有 Worker 会直接发布当前目录中的 index.html
 [assets]
 directory = "."
+
+[[routes]]
+pattern = "youmeng.it.com"
+custom_domain = true
