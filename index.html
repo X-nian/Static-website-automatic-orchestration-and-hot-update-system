@@ -1,78 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://youmeng.it.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://youmeng.it.com/">
+  <meta property="og:title" content="攸梦 · 独立创作者">
+  <meta property="og:description" content="攸梦的个人作品集：平面设计、B站互动内容与 AI 漫剧创作。">
+  <meta property="og:image" content="https://youmeng.it.com/assets/hospital-cultural-wall.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="攸梦的个人作品集：平面设计、B站互动内容与 AI 漫剧创作。">
+  <meta name="theme-color" content="#121212">
   <title>攸梦 · 独立创作者</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <span class="badge">Cloudflare Pages · 部署测试</span>
-      <h1>攸梦</h1>
-      <p class="lead">
-        <strong>独立创作者</strong><br />
-        这是用于验证 <strong>GitHub → Cloudflare Pages</strong> 自动部署链路的测试页。
-        如果你能看到这个页面，说明静态托管已经成功。
-      </p>
-    </div>
+  <header class="site-header">
+    <a class="logo" href="#top">攸梦<span>®</span></a>
+    <nav aria-label="主导航">
+      <a href="#design">平面设计</a>
+      <a href="#bilibili">B站 TOY</a>
+      <a href="#drama">AI 漫剧</a>
+      <a href="#about">关于我</a>
+    </nav>
+    <a class="contact-link" href="#contact">联系我 ↗</a>
   </header>
 
-  <main class="container">
-    <section class="cards">
-      <article class="card">
-        <h2>部署状态</h2>
-        <p id="status">正在检测…</p>
-      </article>
-      <article class="card">
-        <h2>当前时间</h2>
-        <p id="clock">--:--:--</p>
-      </article>
-      <article class="card">
-        <h2>JS 运行测试</h2>
-        <p>点击次数：<span id="count">0</span></p>
-        <button class="btn" id="btn">点我 +1</button>
-      </article>
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow"><i></i> VISUAL DESIGN · INTERACTIVE STORY</p>
+      <h1>让设计成为<br><em>被看见的故事。</em></h1>
+      <div class="hero-foot">
+        <p>平面设计 / B站互动内容 / AI 影像<br>探索视觉、叙事与新工具的边界。</p>
+        <a href="#design">查看作品 <b>↓</b></a>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <span>攸梦</span><b>✦</b>
+      </div>
     </section>
 
-    <section class="note">
-      <h2>如何判断链路正常</h2>
-      <ol>
-        <li>本页能正常打开（静态资源 <code>index.html</code> / <code>styles.css</code> 加载成功）</li>
-        <li>时间每秒刷新（说明 JS 已执行）</li>
-        <li>按钮可点击计数（进一步验证 JS 运行）</li>
-        <li>修改文件 → <code>git push</code> → Cloudflare 自动重新部署</li>
-      </ol>
+    <section class="section design-section" id="design">
+      <div class="section-title">
+        <p>01 / GRAPHIC DESIGN</p>
+        <h2>平面设计</h2>
+        <span>选自 2023 作品集 · 已排除人物主体画面</span>
+      </div>
+
+      <div class="design-grid">
+        <article class="work-card wide">
+          <img src="assets/hospital-cultural-wall.jpg" alt="河南省安阳市第一人民医院文化墙设计" loading="eager" decoding="async">
+          <div class="work-caption"><span>文化空间 / 主 KV</span><h3>医院文化墙设计</h3><b>01</b></div>
+        </article>
+        <article class="work-card">
+          <img src="assets/balloon.jpg" alt="花念品牌星形气球设计" loading="lazy" decoding="async">
+          <div class="work-caption"><span>品牌物料</span><h3>花念 · 气球设计</h3><b>02</b></div>
+        </article>
+        <article class="work-card">
+          <img src="assets/brand-system.jpg" alt="花念品牌图形与物料规范" loading="lazy" decoding="async">
+          <div class="work-caption"><span>视觉系统</span><h3>品牌应用规范</h3><b>03</b></div>
+        </article>
+        <article class="work-card">
+          <img src="assets/poster.jpg" alt="蓝色科技活动主视觉与全套会场物料设计" loading="lazy" decoding="async">
+          <div class="work-caption"><span>主视觉</span><h3>花念 · 主 KV 应用</h3><b>04</b></div>
+        </article>
+        <article class="work-card poster-card">
+          <img src="assets/main-kv.jpg" alt="花念品牌名片、菜单与文具物料设计" loading="lazy" decoding="async">
+          <div class="work-caption"><span>品牌物料</span><h3>名片与文具系统</h3><b>05</b></div>
+        </article>
+        <article class="work-card wide">
+          <img src="assets/banner.jpg" alt="花念花店横幅与网页视觉设计" loading="lazy" decoding="async">
+          <div class="work-caption"><span>线上视觉</span><h3>品牌 Banner 系列</h3><b>06</b></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section toy-section" id="bilibili">
+      <div class="section-title inverse">
+        <p>02 / BILIBILI TOY</p>
+        <h2>互动内容</h2>
+        <span>点击卡片，在新窗口中打开对应的 B站 TOY。</span>
+      </div>
+
+      <div class="toy-grid">
+        <a class="toy-card toy-one" href="https://www.bilibili.com/toy/FTEeyadxyrHlZZ3u/index.html" target="_blank" rel="noopener">
+          <small>TOY / 01</small><strong>你错过的那段人生</strong><span>打开互动作品 ↗</span>
+        </a>
+        <a class="toy-card toy-two" href="https://www.bilibili.com/toy/FvbCsbUQcsBRyW5A/index.html" target="_blank" rel="noopener">
+          <small>TOY / 02</small><strong>精神小测试</strong><span>打开互动作品 ↗</span>
+        </a>
+        <a class="toy-card toy-three" href="https://www.bilibili.com/toy/8y7nSBIa2I4UjNxS/index.html" target="_blank" rel="noopener">
+          <small>TOY / 03</small><strong>以你的精神状态还能支撑多久</strong><span>打开互动作品 ↗</span>
+        </a>
+        <a class="toy-card toy-four" href="https://www.bilibili.com/toy/STnGgBOdaz2pwzAt/index.html" target="_blank" rel="noopener">
+          <small>TOY / 04</small><strong>一念之间小游戏</strong><span>打开互动作品 ↗</span>
+        </a>
+        <a class="toy-card toy-five" href="https://www.bilibili.com/toy/VMZFIPWs6bfoD55H/index.html" target="_blank" rel="noopener">
+          <small>TOY / 05</small><strong>提示词小巫师</strong><span>打开互动作品 ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section drama-section" id="drama">
+      <div class="section-title">
+        <p>03 / AI COMIC DRAMA</p>
+        <h2>AI 漫剧</h2>
+        <span>从画面生成、镜头节奏到声音表达，持续探索 AI 参与叙事创作的可能。</span>
+      </div>
+      <div class="drama-showcase">
+        <video controls preload="none" playsinline poster="assets/ai-drama-poster.jpg" aria-label="AI 漫剧作品视频">
+          <source src="assets/ai-drama.mp4?v=20260730b" type="video/mp4">
+          你的浏览器暂不支持视频播放。
+        </video>
+        <div class="drama-copy">
+          <p>AI VIDEO / 2025</p>
+          <h3>把灵感变成可以观看的故事</h3>
+          <p>以视觉设计经验为基础，将 AI 图像、动态镜头与叙事节奏组合成完整片段。这里记录的不只是一次工具尝试，也是我从平面表达走向动态内容创作的阶段性实践。</p>
+          <span>点击播放，观看完整作品。</span>
+          <a class="media-fallback" href="assets/ai-drama.mp4?v=20260730b" target="_blank" rel="noopener">播放器无法加载？直接打开视频 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="section-title">
+        <p>04 / ABOUT ME</p>
+        <h2>关于我</h2>
+        <span>独立创作者</span>
+      </div>
+      <div class="about-intro">
+        <p class="about-lead">我相信设计不只是让画面变得好看，更是在有限的信息中找到清晰、准确且有温度的表达。</p>
+        <div class="about-story">
+          <p>2023 年，我在山东先森科技有限公司担任设计师，参与视觉设计与品牌内容制作，在真实项目中积累了从需求理解、方案执行到成果交付的完整经验。</p>
+          <p>后来因家庭原因回到家乡，我没有停止创作，而是把这段变化当作重新出发的机会，开始系统学习 AI 图像、内容生成与动态影像，并尝试将传统设计方法与 AIGC 工具结合。</p>
+          <p>2024 年底至 2025 年初，我参加了 AIGC 日历编排活动，创作成果被收录并获得活动奖品。这次经历让我更确定：工具会不断变化，但审美判断、叙事能力和持续行动，始终是创作者最重要的底层能力。</p>
+        </div>
+      </div>
+      <div class="award-grid">
+        <figure>
+          <img src="assets/aigc-calendar-award-v2.jpg" alt="AIGC 日历编排活动获奖实物与作品展示" loading="lazy" decoding="async">
+          <figcaption><span>01</span><strong>AIGC 日历作品收录</strong><small>2024—2025</small></figcaption>
+        </figure>
+        <figure>
+          <img src="assets/aigc-event-prize-v2.jpg" alt="AIGC 日历编排活动奖品与邀请函" loading="lazy" decoding="async">
+          <figcaption><span>02</span><strong>活动奖品与创作者纪念</strong><small>持续探索</small></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <p>05 / CONTACT</p>
+      <h2>有一个有趣的想法？<br><em>一起把它做出来。</em></h2>
+      <div>
+        <a href="mailto:1173883421@qq.com">1173883421@qq.com ↗</a>
+        <span>欢迎通过邮件联系</span>
+      </div>
     </section>
   </main>
 
-  <footer class="container">
-    <p>© <span id="year"></span> 0712121.xyz · 测试页 · Powered by GitHub + Cloudflare Pages · 联系方式：<a href="mailto:1173883421@qq.com">1173883421@qq.com</a></p>
+  <footer>
+    <a class="logo" href="#top">攸梦<span>®</span></a>
+    <p>© <span id="year"></span> 攸梦 PORTFOLIO</p>
+    <a href="#top">返回顶部 ↑</a>
   </footer>
 
   <script>
-    // 部署状态
-    document.getElementById('status').textContent = '✅ 部署成功，页面已加载';
-    document.getElementById('status').style.color = '#7ee787';
-
-    // 年份
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // 时钟
-    function tick() {
-      const d = new Date();
-      document.getElementById('clock').textContent = d.toLocaleTimeString('zh-CN');
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    // 点击计数
-    let n = 0;
-    document.getElementById('btn').addEventListener('click', function () {
-      n++;
-      document.getElementById('count').textContent = n;
-    });
   </script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"d69dc20b2c424fbf803b0dff1d197f7e","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
