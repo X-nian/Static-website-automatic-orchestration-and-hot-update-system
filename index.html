@@ -3,171 +3,283 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-dns-prefetch-control" content="off">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://youmeng.it.com/">
+  <meta name="description" content="TOY 的个人作品集：平面设计、B站互动内容与 AI 漫剧创作。">
+  <meta name="theme-color" content="#f6f1e8">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://youmeng.it.com/">
-  <meta property="og:title" content="攸梦 · 独立创作者">
-  <meta property="og:description" content="攸梦的个人作品集：平面设计、B站互动内容与 AI 漫剧创作。">
+  <meta property="og:title" content="TOY — 视觉设计作品集">
+  <meta property="og:description" content="在设计、故事与 AI 之间，寻找更有温度的表达方式。">
   <meta property="og:image" content="https://youmeng.it.com/assets/hospital-cultural-wall.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="description" content="攸梦的个人作品集：平面设计、B站互动内容与 AI 漫剧创作。">
-  <meta name="theme-color" content="#121212">
-  <title>攸梦 · 独立创作者</title>
+  <title>TOY — 视觉设计作品集</title>
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#top">攸梦<span>®</span></a>
-    <nav aria-label="主导航">
-      <a href="#design">平面设计</a>
-      <a href="#bilibili">B站 TOY</a>
-      <a href="#drama">AI 漫剧</a>
-      <a href="#about">关于我</a>
-    </nav>
-    <a class="contact-link" href="#contact">联系我 ↗</a>
+    <a class="brand" href="#top" aria-label="返回开场">TOY<sup>®</sup></a>
+    <p class="scene-status"><span id="sceneNumber">01</span> / <span id="sceneTotal">10</span></p>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="sceneNav">目录</button>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <p class="eyebrow"><i></i> VISUAL DESIGN · INTERACTIVE STORY</p>
-      <h1>让设计成为<br><em>被看见的故事。</em></h1>
-      <div class="hero-foot">
-        <p>平面设计 / B站互动内容 / AI 影像<br>探索视觉、叙事与新工具的边界。</p>
-        <a href="#design">查看作品 <b>↓</b></a>
+  <nav class="scene-nav" id="sceneNav" aria-label="作品章节">
+    <a class="active" href="#top"><i></i><span>开场</span></a>
+    <a href="#design-intro"><i></i><span>平面设计</span></a>
+    <a href="#wall"><i></i><span>医院文化墙</span></a>
+    <a href="#kv"><i></i><span>主 KV</span></a>
+    <a href="#stationery"><i></i><span>名片与文具</span></a>
+    <a href="#balloon"><i></i><span>气球设计</span></a>
+    <a href="#bilibili"><i></i><span>B站 TOY</span></a>
+    <a href="#drama"><i></i><span>AI 漫剧</span></a>
+    <a href="#about"><i></i><span>关于我</span></a>
+    <a href="#contact"><i></i><span>结束</span></a>
+  </nav>
+
+  <main>
+    <section class="scene hero" id="top" data-scene="开场">
+      <div class="film-grain" aria-hidden="true"></div>
+      <div class="hero-copy reveal">
+        <p class="kicker">VISUAL DESIGN · INTERACTIVE STORY · AI VIDEO</p>
+        <h1>我在设计、故事<br>与 <em>AI</em> 之间，<br><span>寻找更有温度的表达。</span></h1>
+        <div class="identity-list" aria-label="个人定位">
+          <span>平面设计师</span><span>AI 内容创作者</span><span>互动体验探索者</span>
+        </div>
       </div>
-      <div class="hero-orbit" aria-hidden="true">
-        <span>攸梦</span><b>✦</b>
+      <a class="next-cue" href="#design-intro"><span>向下滑动，故事继续</span><b>↓</b></a>
+    </section>
+
+    <section class="scene chapter chapter-design" id="design-intro" data-scene="平面设计">
+      <div class="chapter-number" aria-hidden="true">01</div>
+      <div class="chapter-copy reveal">
+        <p class="kicker">CHAPTER ONE / GRAPHIC DESIGN</p>
+        <h2>让信息被<br><em>准确地看见</em></h2>
+        <p>从品牌主视觉到文化空间，我关注信息结构、视觉秩序，以及设计在真实场景中的沟通效率。</p>
+      </div>
+      <a class="next-cue" href="#wall"><span>查看作品</span><b>↓</b></a>
+    </section>
+
+    <section class="scene work-scene tone-sage" id="wall" data-scene="医院文化墙">
+      <div class="work-visual reveal">
+        <img src="assets/hospital-cultural-wall.jpg" alt="河南省安阳市第一人民医院文化墙设计" loading="lazy" decoding="async" fetchpriority="low">
+      </div>
+      <div class="work-info reveal">
+        <p class="kicker">01 / CULTURAL WALL</p>
+        <h2>医院文化墙</h2>
+        <p>以清晰的信息层级承载医院简介、服务理念与就诊指引，将专业内容转化为易读、亲和的空间视觉。</p>
+        <ul><li>文化空间</li><li>信息编排</li><li>主视觉延展</li></ul>
       </div>
     </section>
 
-    <section class="section design-section" id="design">
-      <div class="section-title">
-        <p>01 / GRAPHIC DESIGN</p>
-        <h2>平面设计</h2>
-        <span>选自 2023 作品集 · 已排除人物主体画面</span>
+    <section class="scene work-scene reverse tone-blue" id="kv" data-scene="主 KV">
+      <div class="work-visual reveal">
+        <img src="assets/poster.jpg" alt="蓝色科技活动主视觉与全套会场物料设计" loading="lazy" decoding="async" fetchpriority="low">
       </div>
-
-      <div class="design-grid">
-        <article class="work-card wide">
-          <img src="assets/hospital-cultural-wall.jpg" alt="河南省安阳市第一人民医院文化墙设计" loading="eager" decoding="async">
-          <div class="work-caption"><span>文化空间 / 主 KV</span><h3>医院文化墙设计</h3><b>01</b></div>
-        </article>
-        <article class="work-card">
-          <img src="assets/balloon.jpg" alt="花念品牌星形气球设计" loading="lazy" decoding="async">
-          <div class="work-caption"><span>品牌物料</span><h3>花念 · 气球设计</h3><b>02</b></div>
-        </article>
-        <article class="work-card">
-          <img src="assets/brand-system.jpg" alt="花念品牌图形与物料规范" loading="lazy" decoding="async">
-          <div class="work-caption"><span>视觉系统</span><h3>品牌应用规范</h3><b>03</b></div>
-        </article>
-        <article class="work-card">
-          <img src="assets/poster.jpg" alt="蓝色科技活动主视觉与全套会场物料设计" loading="lazy" decoding="async">
-          <div class="work-caption"><span>主视觉</span><h3>花念 · 主 KV 应用</h3><b>04</b></div>
-        </article>
-        <article class="work-card poster-card">
-          <img src="assets/main-kv.jpg" alt="花念品牌名片、菜单与文具物料设计" loading="lazy" decoding="async">
-          <div class="work-caption"><span>品牌物料</span><h3>名片与文具系统</h3><b>05</b></div>
-        </article>
-        <article class="work-card wide">
-          <img src="assets/banner.jpg" alt="花念花店横幅与网页视觉设计" loading="lazy" decoding="async">
-          <div class="work-caption"><span>线上视觉</span><h3>品牌 Banner 系列</h3><b>06</b></div>
-        </article>
+      <div class="work-info reveal">
+        <p class="kicker">02 / EVENT KEY VISUAL</p>
+        <h2>活动主 KV</h2>
+        <p>围绕“携手并进，共创未来”建立蓝色科技视觉语言，并延展至邀请函、指示牌和会场物料。</p>
+        <ul><li>主视觉</li><li>活动物料</li><li>场景延展</li></ul>
       </div>
     </section>
 
-    <section class="section toy-section" id="bilibili">
-      <div class="section-title inverse">
-        <p>02 / BILIBILI TOY</p>
-        <h2>互动内容</h2>
-        <span>点击卡片，在新窗口中打开对应的 B站 TOY。</span>
+    <section class="scene work-scene tone-blush" id="stationery" data-scene="名片与文具">
+      <div class="work-visual reveal">
+        <img src="assets/main-kv.jpg" alt="花念品牌名片、菜单与文具物料设计" loading="lazy" decoding="async" fetchpriority="low">
       </div>
-
-      <div class="toy-grid">
-        <a class="toy-card toy-one" href="https://www.bilibili.com/toy/FTEeyadxyrHlZZ3u/index.html" target="_blank" rel="noopener">
-          <small>TOY / 01</small><strong>你错过的那段人生</strong><span>打开互动作品 ↗</span>
-        </a>
-        <a class="toy-card toy-two" href="https://www.bilibili.com/toy/FvbCsbUQcsBRyW5A/index.html" target="_blank" rel="noopener">
-          <small>TOY / 02</small><strong>精神小测试</strong><span>打开互动作品 ↗</span>
-        </a>
-        <a class="toy-card toy-three" href="https://www.bilibili.com/toy/8y7nSBIa2I4UjNxS/index.html" target="_blank" rel="noopener">
-          <small>TOY / 03</small><strong>以你的精神状态还能支撑多久</strong><span>打开互动作品 ↗</span>
-        </a>
-        <a class="toy-card toy-four" href="https://www.bilibili.com/toy/STnGgBOdaz2pwzAt/index.html" target="_blank" rel="noopener">
-          <small>TOY / 04</small><strong>一念之间小游戏</strong><span>打开互动作品 ↗</span>
-        </a>
-        <a class="toy-card toy-five" href="https://www.bilibili.com/toy/VMZFIPWs6bfoD55H/index.html" target="_blank" rel="noopener">
-          <small>TOY / 05</small><strong>提示词小巫师</strong><span>打开互动作品 ↗</span>
-        </a>
+      <div class="work-info reveal">
+        <p class="kicker">03 / BRAND STATIONERY</p>
+        <h2>名片与文具系统</h2>
+        <p>从花卉图形出发，建立轻盈、柔和的品牌识别，并应用于菜单、名片与日常文具。</p>
+        <ul><li>品牌识别</li><li>名片设计</li><li>文具系统</li></ul>
       </div>
     </section>
 
-    <section class="section drama-section" id="drama">
-      <div class="section-title">
-        <p>03 / AI COMIC DRAMA</p>
-        <h2>AI 漫剧</h2>
-        <span>从画面生成、镜头节奏到声音表达，持续探索 AI 参与叙事创作的可能。</span>
+    <section class="scene work-scene reverse tone-butter" id="balloon" data-scene="气球设计">
+      <div class="work-visual reveal compact-visual">
+        <img src="assets/balloon.jpg" alt="花念品牌星形气球设计" loading="lazy" decoding="async" fetchpriority="low">
       </div>
-      <div class="drama-showcase">
+      <div class="work-info reveal">
+        <p class="kicker">04 / BRAND OBJECT</p>
+        <h2>气球设计</h2>
+        <p>把品牌语言从二维画面带到真实物件，让识别系统成为可以被触碰、被记住的一部分。</p>
+        <ul><li>品牌物料</li><li>图形应用</li><li>实体呈现</li></ul>
+      </div>
+    </section>
+
+    <section class="scene toy-scene" id="bilibili" data-scene="B站 TOY">
+      <div class="toy-heading reveal">
+        <p class="kicker">CHAPTER TWO / INTERACTIVE WORKS</p>
+        <h2>把一次点击，<br><em>变成一段体验</em></h2>
+        <p>点击名称后才会在新页面打开对应的 B站 TOY。</p>
+      </div>
+      <ol class="toy-list reveal">
+        <li><a href="https://www.bilibili.com/toy/FTEeyadxyrHlZZ3u/index.html" target="_blank" rel="noopener"><span>01</span><strong>你错过的那段人生</strong><b>进入作品 ↗</b></a></li>
+        <li><a href="https://www.bilibili.com/toy/FvbCsbUQcsBRyW5A/index.html" target="_blank" rel="noopener"><span>02</span><strong>精神小测试</strong><b>进入作品 ↗</b></a></li>
+        <li><a href="https://www.bilibili.com/toy/8y7nSBIa2I4UjNxS/index.html" target="_blank" rel="noopener"><span>03</span><strong>以你的精神状态还能支撑多久</strong><b>进入作品 ↗</b></a></li>
+        <li><a href="https://www.bilibili.com/toy/STnGgBOdaz2pwzAt/index.html" target="_blank" rel="noopener"><span>04</span><strong>一念之间小游戏</strong><b>进入作品 ↗</b></a></li>
+        <li><a href="https://www.bilibili.com/toy/VMZFIPWs6bfoD55H/index.html" target="_blank" rel="noopener"><span>05</span><strong>提示词小巫师</strong><b>进入作品 ↗</b></a></li>
+      </ol>
+    </section>
+
+    <section class="scene drama-scene" id="drama" data-scene="AI 漫剧">
+      <div class="drama-heading reveal">
+        <p class="kicker">CHAPTER THREE / AI COMIC DRAMA</p>
+        <h2>当画面开始<br><em>讲述故事</em></h2>
+        <p>从画面生成、镜头节奏到声音表达，探索 AI 参与叙事创作的可能。</p>
+      </div>
+      <div class="cinema reveal">
         <video controls preload="none" playsinline poster="assets/ai-drama-poster.jpg" aria-label="AI 漫剧作品视频">
-          <source src="assets/ai-drama.mp4?v=20260730b" type="video/mp4">
+          <source src="assets/ai-drama.mp4?v=20260801" type="video/mp4">
           你的浏览器暂不支持视频播放。
         </video>
-        <div class="drama-copy">
-          <p>AI VIDEO / 2025</p>
-          <h3>把灵感变成可以观看的故事</h3>
-          <p>以视觉设计经验为基础，将 AI 图像、动态镜头与叙事节奏组合成完整片段。这里记录的不只是一次工具尝试，也是我从平面表达走向动态内容创作的阶段性实践。</p>
-          <span>点击播放，观看完整作品。</span>
-          <a class="media-fallback" href="assets/ai-drama.mp4?v=20260730b" target="_blank" rel="noopener">播放器无法加载？直接打开视频 ↗</a>
-        </div>
+        <div class="cinema-caption"><span>AI VIDEO / 2025</span><strong>点击播放，观看完整作品</strong><a href="assets/ai-drama.mp4?v=20260801" target="_blank" rel="noopener">直接打开视频 ↗</a></div>
       </div>
     </section>
 
-    <section class="section about-section" id="about">
-      <div class="section-title">
-        <p>04 / ABOUT ME</p>
-        <h2>关于我</h2>
-        <span>独立创作者</span>
+    <section class="scene about-scene" id="about" data-scene="关于我">
+      <div class="about-heading reveal">
+        <p class="kicker">CHAPTER FOUR / ABOUT ME</p>
+        <h2>从设计出发，<br><em>继续学习与创造</em></h2>
       </div>
-      <div class="about-intro">
-        <p class="about-lead">我相信设计不只是让画面变得好看，更是在有限的信息中找到清晰、准确且有温度的表达。</p>
-        <div class="about-story">
-          <p>2023 年，我在山东先森科技有限公司担任设计师，参与视觉设计与品牌内容制作，在真实项目中积累了从需求理解、方案执行到成果交付的完整经验。</p>
-          <p>后来因家庭原因回到家乡，我没有停止创作，而是把这段变化当作重新出发的机会，开始系统学习 AI 图像、内容生成与动态影像，并尝试将传统设计方法与 AIGC 工具结合。</p>
-          <p>2024 年底至 2025 年初，我参加了 AIGC 日历编排活动，创作成果被收录并获得活动奖品。这次经历让我更确定：工具会不断变化，但审美判断、叙事能力和持续行动，始终是创作者最重要的底层能力。</p>
-        </div>
+      <div class="timeline reveal">
+        <article><time>2023</time><div><h3>视觉设计师</h3><p>就职于山东先森科技有限公司，参与视觉设计与品牌内容制作，在真实项目中完成从需求理解到成果交付的实践。</p></div></article>
+        <article><time>2024</time><div><h3>重新出发</h3><p>因家庭原因回到家乡，开始系统学习 AI 图像、内容生成与动态影像，并尝试将传统设计方法与 AIGC 工具结合。</p></div></article>
+        <article><time>2024—2025</time><div><h3>AIGC 日历编排活动</h3><p>创作成果获得收录并收到活动奖品。这段经历让我更确定：工具不断变化，审美判断、叙事能力与持续行动仍是创作者的底层能力。</p></div></article>
       </div>
-      <div class="award-grid">
-        <figure>
-          <img src="assets/aigc-calendar-award-v2.jpg" alt="AIGC 日历编排活动获奖实物与作品展示" loading="lazy" decoding="async">
-          <figcaption><span>01</span><strong>AIGC 日历作品收录</strong><small>2024—2025</small></figcaption>
-        </figure>
-        <figure>
-          <img src="assets/aigc-event-prize-v2.jpg" alt="AIGC 日历编排活动奖品与邀请函" loading="lazy" decoding="async">
-          <figcaption><span>02</span><strong>活动奖品与创作者纪念</strong><small>持续探索</small></figcaption>
-        </figure>
+      <div class="award-photos reveal">
+        <figure><img src="assets/aigc-calendar-award-v2.jpg" alt="AIGC 日历作品收录与获奖实物" loading="lazy" decoding="async" fetchpriority="low"><figcaption>日历作品收录</figcaption></figure>
+        <figure><img src="assets/aigc-event-prize-v2.jpg" alt="AIGC 活动奖品与邀请函" loading="lazy" decoding="async" fetchpriority="low"><figcaption>活动奖品纪念</figcaption></figure>
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
-      <p>05 / CONTACT</p>
-      <h2>有一个有趣的想法？<br><em>一起把它做出来。</em></h2>
-      <div>
-        <a href="mailto:1173883421@qq.com">1173883421@qq.com ↗</a>
-        <span>欢迎通过邮件联系</span>
+    <section class="scene contact-scene" id="contact" data-scene="结束">
+      <div class="end-mark" aria-hidden="true">✦</div>
+      <div class="contact-copy reveal">
+        <p class="kicker">END CREDITS / TOY PORTFOLIO</p>
+        <h2>谢谢你看到这里。</h2>
+        <p>我仍在继续探索平面设计、互动内容与 AI 叙事。</p>
+        <a href="#top">从头再看一次 ↑</a>
       </div>
+      <footer>© <span id="year"></span> TOY PORTFOLIO · YOU MENG</footer>
     </section>
   </main>
 
-  <footer>
-    <a class="logo" href="#top">攸梦<span>®</span></a>
-    <p>© <span id="year"></span> 攸梦 PORTFOLIO</p>
-    <a href="#top">返回顶部 ↑</a>
-  </footer>
-
   <script>
+    const scenes = [...document.querySelectorAll('.scene')];
+    const navLinks = [...document.querySelectorAll('.scene-nav a')];
+    const nav = document.getElementById('sceneNav');
+    const toggle = document.querySelector('.nav-toggle');
+    const sceneNumber = document.getElementById('sceneNumber');
+    document.getElementById('sceneTotal').textContent = String(scenes.length).padStart(2, '0');
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('open', !open);
+    });
+    navLinks.forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+
+    const activateScene = (index) => {
+      sceneNumber.textContent = String(index + 1).padStart(2, '0');
+      navLinks.forEach((link, i) => link.classList.toggle('active', i === index));
+      scenes[index].classList.add('seen');
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) activateScene(scenes.indexOf(entry.target));
+        });
+      }, { threshold: 0.56 });
+      scenes.forEach(scene => observer.observe(scene));
+    } else {
+      scenes.forEach(scene => scene.classList.add('seen'));
+    }
+    scenes[0].classList.add('seen');
+
+    const currentSceneIndex = () => {
+      const marker = window.innerHeight * .45;
+      const visible = scenes.findIndex(scene => {
+        const rect = scene.getBoundingClientRect();
+        return rect.top <= marker && rect.bottom >= marker;
+      });
+      if (visible >= 0) return visible;
+      return scenes.reduce((closest, scene, index) => {
+        const distance = Math.abs(scene.getBoundingClientRect().top);
+        return distance < closest.distance ? { index, distance } : closest;
+      }, { index: 0, distance: Infinity }).index;
+    };
+
+    const goToScene = (index) => {
+      const target = Math.max(0, Math.min(scenes.length - 1, index));
+      activateScene(target);
+      scenes[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    let wheelLocked = false;
+    let wheelIdleTimer;
+    let wheelTarget = 0;
+
+    const scheduleWheelUnlock = () => {
+      clearTimeout(wheelIdleTimer);
+      wheelIdleTimer = setTimeout(() => {
+        scenes[wheelTarget].scrollIntoView({ behavior: 'auto', block: 'start' });
+        wheelLocked = false;
+      }, 650);
+    };
+
+    window.addEventListener('wheel', event => {
+      if (event.ctrlKey || Math.abs(event.deltaY) < 8) return;
+      event.preventDefault();
+      if (wheelLocked) {
+        requestAnimationFrame(() => scenes[wheelTarget].scrollIntoView({ behavior: 'auto', block: 'start' }));
+        scheduleWheelUnlock();
+        return;
+      }
+      wheelLocked = true;
+      const direction = event.deltaY > 0 ? 1 : -1;
+      wheelTarget = Math.max(0, Math.min(scenes.length - 1, currentSceneIndex() + direction));
+      goToScene(wheelTarget);
+      scheduleWheelUnlock();
+    }, { passive: false });
+
+    let touchStartY = 0;
+    let touchStartScene = 0;
+    window.addEventListener('touchstart', event => {
+      if (event.touches.length !== 1) return;
+      touchStartY = event.touches[0].clientY;
+      touchStartScene = currentSceneIndex();
+    }, { passive: true });
+
+    window.addEventListener('touchend', event => {
+      if (!touchStartY || event.changedTouches.length !== 1) return;
+      const distance = touchStartY - event.changedTouches[0].clientY;
+      touchStartY = 0;
+      if (Math.abs(distance) < 45) return;
+      goToScene(touchStartScene + (distance > 0 ? 1 : -1));
+    }, { passive: true });
+
+    document.addEventListener('keydown', event => {
+      if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp'].includes(event.key)) return;
+      if (event.target.closest('video, a, button')) return;
+      const current = scenes.findIndex(scene => {
+        const rect = scene.getBoundingClientRect();
+        return rect.top <= window.innerHeight * .45 && rect.bottom >= window.innerHeight * .45;
+      });
+      const direction = ['ArrowDown', 'PageDown'].includes(event.key) ? 1 : -1;
+      const next = Math.max(0, Math.min(scenes.length - 1, current + direction));
+      if (next !== current) {
+        event.preventDefault();
+        goToScene(next);
+      }
+    });
   </script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"d69dc20b2c424fbf803b0dff1d197f7e","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
