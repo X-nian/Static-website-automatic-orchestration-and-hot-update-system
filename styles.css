@@ -24,6 +24,10 @@ button { color: inherit; font: inherit; }
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; display: flex; align-items: center; justify-content: space-between; height: 68px; padding: 0 clamp(20px, 4vw, 64px); mix-blend-mode: multiply; }
 .brand { font-weight: 900; font-size: 22px; letter-spacing: -.08em; text-decoration: none; }
 .brand sup { color: var(--accent); font-size: 8px; margin-left: 3px; }
+.header-actions { display: flex; align-items: center; gap: 24px; }
+.news-entry { font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 3px; }
+.news-entry:hover { color: var(--accent); }
+.news-entry:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 .scene-status { position: absolute; left: 50%; transform: translateX(-50%); margin: 0; font-size: 10px; font-weight: 700; letter-spacing: .16em; }
 .nav-toggle { border: 0; border-bottom: 1px solid currentColor; padding: 3px 0; background: transparent; font-size: 11px; cursor: pointer; }
 

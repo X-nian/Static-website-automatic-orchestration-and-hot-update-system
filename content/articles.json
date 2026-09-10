@@ -1,0 +1,65 @@
+[
+  {
+    "id": "meiren-mv-black-banquet-hall",
+    "title": "为《媚人》MV 做一座黑色宴会厅：我的 AI 场景制作尝试",
+    "section": "新手教程",
+    "label": "黑色宴会厅",
+    "summary": "从黑红配色出发，记录《媚人》MV 场景的制作思路，并整理一套新手可参考的生成与检查方法。",
+    "updated": "2026-09-10",
+    "skill": false
+  },
+  {
+    "id": "read-software-instructions-with-ai",
+    "title": "软件说明看不懂？让 AI 帮你提重点、讲术语、列步骤",
+    "section": "新手教程",
+    "label": "读懂软件说明",
+    "summary": "用一个明确标注的模拟通知，练习提取重点、解释术语和整理操作顺序。",
+    "updated": "2026-09-10",
+    "skill": false
+  },
+  {
+    "id": "how-to-revise-ai-images",
+    "title": "AI 生成的图片不对，应该怎么改？",
+    "section": "新手教程",
+    "label": "修改 AI 图片",
+    "summary": "把“感觉不对”变成具体要求：先定位问题，再说明保留什么、修改什么。",
+    "updated": "2026-09-10",
+    "skill": false
+  },
+  {
+    "id": "how-to-edit-ai-written-prompts",
+    "title": "AI 给了一大段提示词，要全部用上吗？",
+    "section": "值得关注",
+    "label": "提示词的取舍",
+    "summary": "拆开长提示词，理解每句话控制什么，再决定哪些保留、改写或删除。",
+    "updated": "2026-09-10",
+    "skill": false
+  },
+  {
+    "id": "evaluate-ai-generation-workflows",
+    "title": "别再凭最好的一张判断：怎样测试一个生成方案？",
+    "section": "值得关注",
+    "label": "测试生成方案",
+    "summary": "通过教学模拟，比较一整批生成结果，而非仅凭最好的一张判断方案。",
+    "updated": "2026-09-10",
+    "skill": false
+  },
+  {
+    "id": "planning-ai-video-shots",
+    "title": "现在做 AI 视频，还需要把每个镜头都写得很细吗？",
+    "section": "进阶实践",
+    "label": "镜头如何规划",
+    "summary": "先交代叙事目标，再把具体控制留给关键动作、节奏和连续性。",
+    "updated": "2026-09-10",
+    "skill": true
+  },
+  {
+    "id": "judging-ai-asset-usability",
+    "title": "AI 图片做到什么程度，才算可以进入下一步？",
+    "section": "进阶实践",
+    "label": "素材何时可用",
+    "summary": "按用途确定验收边界，分开记录画面检查、跨镜一致性和动态验证。",
+    "updated": "2026-09-10",
+    "skill": true
+  }
+]

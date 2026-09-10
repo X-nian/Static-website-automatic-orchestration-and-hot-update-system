@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="从黑红配色出发，记录《媚人》MV 场景的制作思路，并整理一套新手可参考的生成与检查方法。"><title>为《媚人》MV 做一座黑色宴会厅：我的 AI 场景制作尝试 — TOY</title>
+<link rel="stylesheet" href="/news/news.css?v=2"><link rel="stylesheet" href="/news/reading.css?v=1">
+<script src="/news/orbit.js?v=1" defer></script></head><body class="reader">
+<a class="skip-link" href="#main">跳到正文</a><header class="masthead"><a class="brand" href="/">TOY<span>®</span></a>
+<nav aria-label="主导航"><a href="/">作品集</a><a href="/news/">AIGC 观察</a><a href="/news/skills/aigc-shot-workshop/">镜头工坊</a></nav><span class="edition-label">DESIGN × TECHNOLOGY</span></header>
+<div class="reader-layout"><aside class="reader-sidebar"><details open class="navigation-panel"><summary>文章导航 <span>展开 / 收起</span></summary><div class="navigation-content">
+<div class="orbit-block"><div class="orbit" aria-label="球形文章导航"><div class="orbit-ring" aria-hidden="true"></div><a class="orbit-node" href="/news/articles/meiren-mv-black-banquet-hall/" tabindex="-1" aria-hidden="true" title="为《媚人》MV 做一座黑色宴会厅：我的 AI 场景制作尝试"><i></i><span>黑色宴会厅</span></a><a class="orbit-node" href="/news/articles/read-software-instructions-with-ai/" tabindex="-1" aria-hidden="true" title="软件说明看不懂？让 AI 帮你提重点、讲术语、列步骤"><i></i><span>读懂软件说明</span></a><a class="orbit-node" href="/news/articles/how-to-revise-ai-images/" tabindex="-1" aria-hidden="true" title="AI 生成的图片不对，应该怎么改？"><i></i><span>修改 AI 图片</span></a><a class="orbit-node" href="/news/articles/how-to-edit-ai-written-prompts/" tabindex="-1" aria-hidden="true" title="AI 给了一大段提示词，要全部用上吗？"><i></i><span>提示词的取舍</span></a><a class="orbit-node" href="/news/articles/evaluate-ai-generation-workflows/" tabindex="-1" aria-hidden="true" title="别再凭最好的一张判断：怎样测试一个生成方案？"><i></i><span>测试生成方案</span></a><a class="orbit-node" href="/news/articles/planning-ai-video-shots/" tabindex="-1" aria-hidden="true" title="现在做 AI 视频，还需要把每个镜头都写得很细吗？"><i></i><span>镜头如何规划</span></a><a class="orbit-node" href="/news/articles/judging-ai-asset-usability/" tabindex="-1" aria-hidden="true" title="AI 图片做到什么程度，才算可以进入下一步？"><i></i><span>素材何时可用</span></a></div><p class="orbit-hint">拖动或在球内滚动，点击标题阅读。</p><div class="orbit-controls"><button type="button" data-turn="-1" aria-label="向左旋转文章球">←</button><button type="button" data-turn="1" aria-label="向右旋转文章球">→</button></div></div>
+<nav aria-label="全部文章"><p class="section-code">全部文章 · 7 篇</p><ol class="article-list"><li><a href="/news/articles/meiren-mv-black-banquet-hall/" aria-current="page"><span>01</span>为《媚人》MV 做一座黑色宴会厅：我的 AI 场景制作尝试</a></li><li><a href="/news/articles/read-software-instructions-with-ai/" ><span>02</span>软件说明看不懂？让 AI 帮你提重点、讲术语、列步骤</a></li><li><a href="/news/articles/how-to-revise-ai-images/" ><span>03</span>AI 生成的图片不对，应该怎么改？</a></li><li><a href="/news/articles/how-to-edit-ai-written-prompts/" ><span>04</span>AI 给了一大段提示词，要全部用上吗？</a></li><li><a href="/news/articles/evaluate-ai-generation-workflows/" ><span>05</span>别再凭最好的一张判断：怎样测试一个生成方案？</a></li><li><a href="/news/articles/planning-ai-video-shots/" ><span>06</span>现在做 AI 视频，还需要把每个镜头都写得很细吗？</a></li><li><a href="/news/articles/judging-ai-asset-usability/" ><span>07</span>AI 图片做到什么程度，才算可以进入下一步？</a></li></ol></nav><a class="sidebar-skill" href="/news/skills/aigc-shot-workshop/">AIGC 镜头工坊 · Skill ↗</a></div></details></aside><main id="main" class="article-main"><a class="back-link" href="/news/">← AIGC 观察</a><header class="article-header"><p class="section-code">新手教程 / TOY</p><h1>为《媚人》MV 做一座黑色宴会厅：我的 AI 场景制作尝试</h1><p class="article-summary">从黑红配色出发，记录《媚人》MV 场景的制作思路，并整理一套新手可参考的生成与检查方法。</p><p class="article-meta">内容更新 <time datetime="2026-09-10">2026-09-10</time></p></header><figure class="article-figure"><img src="/news/media/meiren-banquet.png" alt="《媚人》MV 黑色宴会厅场景：两侧长桌与吊灯，中间通道通向远处台阶"><figcaption>《媚人》MV 场景素材 · 黑色宴会厅</figcaption></figure><details class="contents"><summary>本文目录</summary><div class="toc">
+<ul>
+<li><a href="#_1">一、先想清楚画面，不急着写提示词</a></li>
+<li><a href="#gpt">二、让 GPT 帮忙把想法整理成画面描述</a></li>
+<li><a href="#_2">三、把提示词拆成几个容易修改的部分</a></li>
+<li><a href="#_3">四、黑红搭配，先分清主次</a></li>
+<li><a href="#_4">五、生成之后，先看整体，再看细节</a></li>
+<li><a href="#_5">六、修改时，一次先解决一个问题</a></li>
+<li><a href="#mv">七、把它当成 MV 的一张素材来检查</a></li>
+<li><a href="#_6">写在最后</a></li>
+</ul>
+</div>
+</details><div class="prose"><p>《媚人》这首歌让我很有感触，所以我想为它制作一支 MV，把听歌时的感受变成具体的画面。</p>
+<p>在准备素材时，我先确定了整体的颜色方向：<strong>黑色和红色搭配</strong>。之后，让 GPT 帮我整理图片提示词，再根据自己的想法稍作修改，开始生成场景并检查。</p>
+<p>这座黑色宴会厅，就是其中的一张场景素材。</p>
+<p>下面除了记录这张图，也整理了一套新手可以参考的做法。教程部分是根据画面总结的思路，不是当时操作的逐步还原。</p>
+<h2 id="_1">一、先想清楚画面，不急着写提示词</h2>
+<p>刚开始做场景时，不一定要懂很多专业词。可以先用简单的话回答三个问题：</p>
+<ul>
+<li><strong>这是哪里？</strong> 一座宴会厅。</li>
+<li><strong>主要是什么颜色？</strong> 黑色为主，红色点缀。</li>
+<li><strong>希望它有什么感觉？</strong> 这一项可以结合歌曲，写下自己的直观感受。</li>
+</ul>
+<p>从这张成图来看，高大的空间、整齐的桌椅和空荡的通道，让它显得正式、安静，也有一些压迫感。这些都可以成为进一步描述画面的词。</p>
+<p>比起一开始就堆很多“电影感”“高级感”，先把场景说清楚，更容易判断生成结果有没有偏离想法。</p>
+<h2 id="gpt">二、让 GPT 帮忙把想法整理成画面描述</h2>
+<p>我的实际做法，是先让 GPT 出提示词，再自己修改。</p>
+<p>新手可以先把需求写成一段普通的话：</p>
+<blockquote>
+<p>我要为一支 MV 制作场景素材，整体以黑色和红色搭配。现在需要一张没有人物的宴会厅图片，请帮我整理成图片生成提示词。描述里要包含空间布局、主要物品、颜色和灯光，不要加入没有提到的复杂剧情。</p>
+</blockquote>
+<p>拿到提示词后，不必全部照用。可以检查：</p>
+<ul>
+<li>有没有加入不需要的人物或物品？</li>
+<li>颜色是不是偏离了黑红方向？</li>
+<li>描述的房间布局是不是自己想要的？</li>
+<li>有没有互相矛盾的要求？</li>
+</ul>
+<p>例如，希望画面昏暗，又要求每个角落都非常明亮，就需要调整。可以改成“整体偏暗，关键位置保留适量灯光”，让要求更明确。</p>
+<p><strong>GPT 可以帮助补充描述，最后仍要自己决定保留什么。</strong></p>
+<h2 id="_2">三、把提示词拆成几个容易修改的部分</h2>
+<p>提示词不需要写得像一篇文章。可以按下面的顺序组织：</p>
+<div class="table-scroll" role="region" aria-label="文章表格" tabindex="0"><table>
+<thead>
+<tr>
+<th>部分</th>
+<th>需要说明什么</th>
+<th>宴会厅示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>场景</td>
+<td>画面在哪里</td>
+<td>高大、封闭的黑色宴会厅</td>
+</tr>
+<tr>
+<td>布局</td>
+<td>东西怎么摆</td>
+<td>长桌分列两侧，中间留出通道</td>
+</tr>
+<tr>
+<td>颜色</td>
+<td>哪种颜色为主</td>
+<td>黑色为主，少量暗红色点缀</td>
+</tr>
+<tr>
+<td>灯光</td>
+<td>哪里亮、哪里暗</td>
+<td>吊灯与壁灯提供微弱照明</td>
+</tr>
+<tr>
+<td>画面范围</td>
+<td>想看到多少空间</td>
+<td>正面广角，展示完整大厅</td>
+</tr>
+<tr>
+<td>限制</td>
+<td>不希望出现什么</td>
+<td>没有人物、文字和水印</td>
+</tr>
+</tbody>
+</table></div>
+<p>下面这段是<strong>根据成图重新整理的练习提示词，并非原始提示词</strong>：</p>
+<blockquote>
+<p>一座高大、封闭的黑色宴会厅，正面视角，左右基本对称。两侧排列黑色长桌和座椅，桌面摆放少量餐盘与高脚杯，中间留出宽阔通道，通向大厅深处的台阶。黑色墙面、高耸立柱与成排吊灯构成空间，远处少量暗红色装饰作为点缀。整体光线偏暗，保留墙面、桌椅和地面的层次，灯具与地面有克制的反光。气氛安静、庄重，略带压迫感。横向构图，无人物，无文字，无水印。</p>
+</blockquote>
+<p>这段可以作为起点，但不同工具的结果会有差异，也不保证生成完全相同的画面。</p>
+<h2 id="_3">四、黑红搭配，先分清主次</h2>
+<p>这张图里，黑色占据了大部分空间，暗红色集中在远处。</p>
+<p>这种安排让画面整体比较统一，红色又提供了一个可以注意到的位置。如果每面墙、每张桌子都加入鲜红色，视觉效果就会变得不同。</p>
+<p>做类似练习时，可以先这样描述：</p>
+<blockquote>
+<p>黑色作为主要颜色，暗红色只出现在少量装饰区域，避免大面积鲜红色。</p>
+</blockquote>
+<p>另一点是，<strong>黑色不等于整张图什么都看不清</strong>。</p>
+<p>这张图里的地面、墙面和桌椅虽然都偏黑，但亮度与反光有所区别，所以还能看出空间结构。如果生成结果太暗，可以补充：</p>
+<blockquote>
+<p>保留暗部细节，让桌椅、墙面和地面能够区分，避免大片区域完全漆黑。</p>
+</blockquote>
+<p>先解决“能不能看清”，再调整“气氛够不够”，会更容易判断。</p>
+<h2 id="_4">五、生成之后，先看整体，再看细节</h2>
+<p>图片生成出来后，可以分两遍检查。</p>
+<p><strong>第一遍看整体。</strong></p>
+<p>先不要放大，看看它是不是想要的场景：</p>
+<ul>
+<li>第一眼能不能认出是宴会厅？</li>
+<li>黑色和红色的关系是否符合方向？</li>
+<li>中间通道是否清楚？</li>
+<li>有没有突然出现不需要的人物或物品？</li>
+</ul>
+<p><strong>第二遍看细节。</strong></p>
+<p>再放大看看：</p>
+<ul>
+<li>桌腿、椅背有没有粘连或变形？</li>
+<li>杯子和餐盘有没有奇怪地融合在一起？</li>
+<li>台阶和地面是否连接自然？</li>
+<li>吊灯有没有悬空、断裂或结构混乱？</li>
+</ul>
+<p>不是每个小问题都需要立刻重做。可以先处理最显眼、最影响画面的地方，再判断剩下的问题是否会影响实际使用。</p>
+<h2 id="_5">六、修改时，一次先解决一个问题</h2>
+<p>如果一张图同时存在颜色、灯光和布局问题，可以先挑最重要的一个修改。</p>
+<p>例如：</p>
+<p><strong>画面太黑：</strong></p>
+<blockquote>
+<p>保留现有布局和黑红配色，适当提高暗部亮度，让桌椅轮廓和地面纹理更清楚。</p>
+</blockquote>
+<p><strong>红色太多：</strong></p>
+<blockquote>
+<p>保留黑色主调，减少红色面积，仅在大厅远处保留少量暗红色点缀。</p>
+</blockquote>
+<p><strong>中间通道不清楚：</strong></p>
+<blockquote>
+<p>两侧桌椅向外排列，中间保留连续、宽阔的空通道，不放置杂物。</p>
+</blockquote>
+<p>这些是可参考的修改写法，不代表工具一定能严格保持其他部分不变。每次修改后，仍要重新看一遍整体。</p>
+<p>一次改一个主要问题，也方便比较：这一版究竟改善了哪里，又有没有带来新的问题。</p>
+<h2 id="mv">七、把它当成 MV 的一张素材来检查</h2>
+<p>场景图之后还要服务于视频，因此可以提前想一想：</p>
+<ul>
+<li>如果人物站在中间，会不会和黑色背景混在一起？</li>
+<li>如果镜头慢慢向前推进，想让观众看向哪里？</li>
+<li>如果裁切成需要的视频比例，重要部分会不会被切掉？</li>
+</ul>
+<p>这张图中间留有通道，远处有台阶，具备尝试向前推进镜头的构图条件。实际生成视频时，仍需要检查桌椅和建筑有没有变形，不能只凭静态图就确定镜头效果。</p>
+<p>保存素材时，也可以给文件起清楚的名字，例如：</p>
+<blockquote>
+<p>黑色宴会厅_正面_版本01</p>
+</blockquote>
+<p>有了新版本，保留旧图，方便回头比较，不必靠记忆判断哪张更合适。</p>
+<h2 id="_6">写在最后</h2>
+<p>这次场景制作，从一个比较简单的方向开始：为《媚人》MV 准备一座黑红配色的宴会厅。</p>
+<p>先确定想法，让 GPT 帮忙整理提示词，再自己修改、生成和检查。对于刚开始尝试的人来说，不需要一次把所有细节想明白，可以先完成一个场景，再逐步调整。</p>
+<p>重要的是，每次修改都知道自己想解决什么。这样留下来的，不只是一张图片，也是一点下次还能用上的经验。</p>
+<hr />
+<p><em>配图说明：《媚人》MV 场景素材——黑色宴会厅。本文中的练习提示词根据成图重新整理，供学习参考。</em></p></div><nav class="article-pagination" aria-label="相邻文章"><div><span>上一篇</span><a href="/news/">返回全部文章</a></div><div><span>下一篇</span><a href="/news/articles/read-software-instructions-with-ai/">软件说明看不懂？让 AI 帮你提重点、讲术语、列步骤</a></div></nav></main></div><footer class="reading-footer"><a href="/">TOY / 创作持续发生</a><a href="#main">回到顶部 ↑</a></footer></body></html>
