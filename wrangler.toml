@@ -1,5 +1,6 @@
 name = "sparkling-truth-0e2c"
 compatibility_date = "2026-07-21"
+workers_dev = true
 
 # 用 Cloudflare Workers 的静态资源（Assets）直接托管当前目录
 # 这样现有 Worker 会直接发布当前目录中的 index.html
