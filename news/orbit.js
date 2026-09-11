@@ -6,7 +6,7 @@
   const nodes = [...orbit.querySelectorAll('.orbit-node')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 760px)');
-  let yaw = 0.2, pitch = -0.15, drag = null, moved = false, frame = 0;
+  let yaw = 0.2, pitch = -0.15, drag = null, moved = false, frame = 0, hovering = false, lastTick = performance.now();
   const points = nodes.map((_, i) => {
     const y = 1 - 2 * (i + 0.5) / nodes.length;
     const radius = Math.sqrt(1 - y * y), theta = i * Math.PI * (3 - Math.sqrt(5));
@@ -28,6 +28,14 @@
     });
   }
   function schedule() { if (!frame) frame = requestAnimationFrame(render); }
+  function animate(now) {
+    if (!reduced.matches && !mobile.matches && panel.open && !drag && !hovering) {
+      yaw += Math.min(now - lastTick, 40) * 0.00012;
+      render();
+    }
+    lastTick = now;
+    requestAnimationFrame(animate);
+  }
   orbit.addEventListener('wheel', event => {
     if (event.ctrlKey || reduced.matches || mobile.matches) return;
     event.preventDefault();
@@ -62,9 +70,14 @@
   window.addEventListener('pointercancel', end);
   orbit.addEventListener('click', event => { if (moved) { event.preventDefault(); event.stopPropagation(); moved = false; } }, true);
   orbit.addEventListener('dragstart', event => event.preventDefault());
+  orbit.addEventListener('pointerenter', () => { hovering = true; });
+  orbit.addEventListener('pointerleave', () => { hovering = false; });
+  orbit.addEventListener('focusin', () => { hovering = true; });
+  orbit.addEventListener('focusout', () => { hovering = false; });
   document.querySelectorAll('[data-turn]').forEach(button => button.addEventListener('click', () => { yaw += Number(button.dataset.turn) * 0.6; schedule(); }));
   panel.addEventListener('toggle', schedule);
   window.addEventListener('resize', schedule);
   reduced.addEventListener('change', schedule);
   render();
+  requestAnimationFrame(animate);
 })();
