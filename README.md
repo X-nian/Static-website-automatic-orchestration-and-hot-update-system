@@ -10,6 +10,16 @@
 
 ---
 
+## 当前公开内容
+
+- [AIGC 创作笔记](https://youmeng.it.com/news/)：7 篇从新手入门到进阶判断的文章。
+- [AIGC 镜头工坊](content/skills/aigc-shot-workshop/)：镜头规划、提示词与素材验收工作流。
+- [多平台内容工作室](content/skills/multi-platform-content/)：学习指定账号风格，将一份素材整理为小红书、微信公众号、B站等平台的差异化草稿，并追踪草稿与发布版本。
+
+两个 Skill 均可在网站的[创作 Skill 库](https://youmeng.it.com/news/skills/)中阅读说明并下载完整压缩包。
+
+---
+
 ## 一、需要的软件
 
 | 软件 | 用途 |

@@ -1,0 +1,32 @@
+{
+  "schema_version": 2,
+  "profile_id": null,
+  "display_name": null,
+  "profile_dir": null,
+  "enabled_platforms": [],
+  "sources": [],
+  "refresh": {
+    "auto_before_draft": true,
+    "freshness_hours": 24,
+    "initial_sample_per_platform": 30,
+    "new_items_per_platform_per_run": 100,
+    "revisit_latest_count": 10,
+    "revisit_days": 30,
+    "revisit_max_items": 30,
+    "revisit_interval_hours": 24,
+    "max_total_attempts_per_item": 5,
+    "same_run_extra_attempts": 1,
+    "retry_backoff_hours": [1, 6, 24]
+  },
+  "current_style_version": null,
+  "output_preferences": {
+    "title_options": 3,
+    "history_examples_per_platform": 3,
+    "default_action": "save_local_drafts"
+  },
+  "validation": {
+    "live_collection": "not_run",
+    "held_out_style": "not_run",
+    "user_style_acceptance": "not_run"
+  }
+}

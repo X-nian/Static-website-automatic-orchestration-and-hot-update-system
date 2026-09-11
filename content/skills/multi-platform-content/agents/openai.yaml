@@ -1,0 +1,7 @@
+interface:
+  display_name: "多平台内容工作室"
+  short_description: "自动更新历史内容与风格档案，生成多平台草稿并追踪发布后的修改"
+  default_prompt: "使用 $multi-platform-content 按需更新我指定账号的历史与风格档案，将这份素材生成各平台草稿，并保存可追溯的创作版本。"
+
+policy:
+  allow_implicit_invocation: true

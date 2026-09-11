@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "campaign_id": null,
+  "profile_id": null,
+  "created_at": null,
+  "source_assets": [],
+  "facts": [],
+  "style_version": null,
+  "applied_rule_ids": [],
+  "history_examples": [],
+  "targets": [],
+  "validation": {
+    "factual_consistency": "not_run",
+    "style_scope": "not_run",
+    "platform_adaptation": "not_run",
+    "live_platform_constraints": "not_run",
+    "artifact_integrity": "not_run"
+  },
+  "unresolved_questions": []
+}
