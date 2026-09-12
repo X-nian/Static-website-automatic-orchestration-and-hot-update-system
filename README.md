@@ -1,8 +1,9 @@
-# 部署教程与测试页
+# TOY 网站与部署记录
 
-本仓库是一个**最小可运行的 Cloudflare 部署演示 + 教程**：
+本仓库现在承载 TOY 的 AIGC 创作笔记、作品档案和 Skill 下载页，并保留早期的 Cloudflare 部署教程：
 
-- 一个能跑的测试网页（`index.html` + `styles.css`），用来验证部署链路
+- 根地址 `/` 与 `/news/` 使用同一份生成的创作笔记首页
+- `/news/works/` 收纳原首页的平面设计、B站互动作品、AI 漫剧和创作经历
 - 一套完整的 **GitHub → Cloudflare 自动部署**配置（`wrangler.toml`）
 - 一个**本地 Git 网页授权脚本**（`git-auth.ps1`），帮你免 token 登录 GitHub 并提交
 - 一个**版本存档与切换脚本**（`version.ps1`），把每次改动存成版本并可在版本间切换部署
@@ -13,7 +14,8 @@
 ## 当前公开内容
 
 - [AIGC 创作笔记](https://youmeng.it.com/news/)：7 篇从新手入门到进阶判断的文章。
-- [AIGC 镜头工坊](content/skills/aigc-shot-workshop/)：镜头规划、提示词与素材验收工作流。
+- [作品档案](https://youmeng.it.com/news/works/)：平面设计、互动内容、AI 影像与创作经历。
+- [AIGC 镜头工坊](content/skills/aigc-shot-workshop/)：剧本改编、逐段修订与逻辑检查，按需进入镜头、提示词与素材验收。
 - [多平台内容工作室](content/skills/multi-platform-content/)：学习指定账号风格，将一份素材整理为小红书、微信公众号、B站等平台的差异化草稿，并追踪草稿与发布版本。
 
 两个 Skill 均可在网站的[创作 Skill 库](https://youmeng.it.com/news/skills/)中阅读说明并下载完整压缩包。

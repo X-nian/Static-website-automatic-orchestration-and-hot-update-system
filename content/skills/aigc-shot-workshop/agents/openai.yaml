@@ -1,6 +1,6 @@
 interface:
   display_name: "AIGC 镜头工坊"
-  short_description: "逐段梳理剧本并修改镜头方案，按需制作提示词、示意图和素材检查"
-  default_prompt: "使用 $aigc-shot-workshop 先把我的剧本分段，给出简短目录，再从第一段开始概述和修改镜头方案。暂时不要生成图片。"
+  short_description: "按古风、现代或反转要求改编故事，逐段修订并检查逻辑，再按需规划镜头与素材"
+  default_prompt: "使用 $aigc-shot-workshop 将我的故事改成现代讽刺短片，保留主角关系，允许改变结局；先确定改编方向，再列简短目录，只展开第一段改写并说明理由，检查故事后再按需规划镜头，暂不出图。"
 policy:
   allow_implicit_invocation: true
